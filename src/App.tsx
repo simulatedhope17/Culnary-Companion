@@ -9,6 +9,7 @@ import SettingsScreen from './screens/SettingsScreen'
 import FavoritesScreen from './screens/FavoritesScreen'
 import SearchScreen from './screens/SearchScreen'
 import RecentsScreen from './screens/RecentsScreen'
+import GestureDebugScreen from './screens/GestureDebugScreen'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/favorites" element={<FavoritesScreen />} />
             <Route path="/search" element={<SearchScreen />} />
             <Route path="/recents" element={<RecentsScreen />} />
+            <Route path="/gesture-debug" element={<GestureDebugScreen />} />
               </Routes>
             </div>
           </Router>

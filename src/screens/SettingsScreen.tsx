@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import MobileHeader from '../components/MobileHeader'
 import PersistentNavBar from '../components/PersistentNavBar'
-import { Volume2, Hand, Bell, Smartphone } from 'lucide-react'
+import { Volume2, Hand, Bell, Smartphone, Bug } from 'lucide-react'
 
 const SettingsScreen = () => {
   const [voiceCommands, setVoiceCommands] = useState(() => {
@@ -12,6 +12,9 @@ const SettingsScreen = () => {
   })
   const [recipeReminders, setRecipeReminders] = useState(false)
   const [appUpdates, setAppUpdates] = useState(true)
+  const [debugButton, setDebugButton] = useState(() => {
+    return localStorage.getItem('debug-button-enabled') === 'true'
+  })
 
   useEffect(() => {
     localStorage.setItem('voice-commands-enabled', voiceCommands.toString())
@@ -20,6 +23,10 @@ const SettingsScreen = () => {
   useEffect(() => {
     localStorage.setItem('gesture-controls-enabled', gestureControls.toString())
   }, [gestureControls])
+
+  useEffect(() => {
+    localStorage.setItem('debug-button-enabled', debugButton.toString())
+  }, [debugButton])
 
   const ToggleSwitch = ({
     enabled,
@@ -97,6 +104,13 @@ const SettingsScreen = () => {
               description="Use specific hand gestures for navigation and actions."
               enabled={gestureControls}
               onToggle={setGestureControls}
+            />
+            <SettingItem
+              icon={Bug}
+              title="Show Debug Button"
+              description="Show the gesture debug overlay button on cooking page."
+              enabled={debugButton}
+              onToggle={setDebugButton}
             />
           </div>
         </section>

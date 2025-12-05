@@ -9,11 +9,9 @@ const VoiceGestureFeedback = () => {
   const [feedbackMessage, setFeedbackMessage] = useState('')
 
   useEffect(() => {
-    if (isListening) {
-      setShowFeedback(true)
-      setFeedbackType('listening')
-      setFeedbackMessage('Listening...')
-    } else if (lastCommand) {
+    // Don't show "Listening..." here anymore - it's in the header
+    // Only show success/error feedback for commands
+    if (lastCommand) {
       setShowFeedback(true)
       setFeedbackType('success')
       setFeedbackMessage(`Voice: "${lastCommand}"`)
@@ -26,13 +24,13 @@ const VoiceGestureFeedback = () => {
     } else {
       setShowFeedback(false)
     }
-  }, [isListening, lastCommand, lastGesture])
+  }, [lastCommand, lastGesture])
 
   if (!showFeedback) return null
 
   return (
     <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50">
-      {/* Command Feedback */}
+      {/* Command Feedback - Only show success/error messages, not listening status */}
       {showFeedback && (
         <div
           className={`flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg transition-all ${
@@ -43,9 +41,7 @@ const VoiceGestureFeedback = () => {
               : 'bg-blue-500 text-white'
           }`}
         >
-          {feedbackType === 'listening' ? (
-            <Loader className="animate-spin" size={20} />
-          ) : feedbackType === 'success' ? (
+          {feedbackType === 'success' ? (
             <CheckCircle size={20} />
           ) : (
             <XCircle size={20} />
