@@ -28,6 +28,44 @@ A mobile-first recipe application designed for hands-free cooking with voice and
 - Node.js 18+ and npm
 - **Google Chrome** (required for voice and gesture controls)
 
+### Installing Node.js and npm
+
+npm comes bundled with Node.js, so installing Node.js will also install npm. Here are installation options:
+
+**Option 1: Official Installer (Recommended)**
+1. Visit [nodejs.org](https://nodejs.org/)
+2. Download the LTS (Long Term Support) version for your operating system
+3. Run the installer and follow the setup wizard
+4. Verify installation by opening a terminal and running:
+   ```bash
+   node --version
+   npm --version
+   ```
+
+**Option 2: Using a Package Manager**
+
+- **macOS (using Homebrew)**:
+  ```bash
+  brew install node
+  ```
+
+- **Linux (Ubuntu/Debian)**:
+  ```bash
+  sudo apt update
+  sudo apt install nodejs npm
+  ```
+
+- **Windows (using Chocolatey)**:
+  ```bash
+  choco install nodejs
+  ```
+
+After installation, verify that both Node.js and npm are installed correctly:
+```bash
+node --version  # Should show v18.x.x or higher
+npm --version   # Should show 9.x.x or higher
+```
+
 ### Installation
 
 1. Install dependencies:
