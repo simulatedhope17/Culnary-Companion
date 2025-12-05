@@ -69,6 +69,12 @@ npm --version   # Should show 9.x.x or higher
 ### Installation
 
 1. Install dependencies:
+
+```bash
+npm install --legacy-peer-deps
+```
+or
+
 ```bash
 npm install
 ```
