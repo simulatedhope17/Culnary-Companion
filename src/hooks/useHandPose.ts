@@ -447,11 +447,6 @@ export const useHandPose = (options: UseHandPoseOptions = {}) => {
       return tip.y < pip.y && pip.y < mcp.y
     }
 
-    // Helper: check if finger is closed
-    const isFingerClosed = (tip: HandPoseKeypoint, pip: HandPoseKeypoint, mcp: HandPoseKeypoint) => {
-      return tip.y > pip.y
-    }
-
     // Check which fingers are extended
     const indexExtended = isFingerExtended(indexTip, indexPIP, indexMCP)
     const middleExtended = isFingerExtended(middleTip, middlePIP, middleMCP)

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, ReactNode } from 'react'
-import { Recipe } from '../data/mockData'
 
 interface RecipeContextType {
   favorites: string[]

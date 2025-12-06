@@ -48,7 +48,7 @@ export const useTTS = () => {
       }
 
       utterance.onerror = (error: SpeechSynthesisErrorEvent) => {
-        console.error('TTS error:', error.error, error.message || '')
+        console.error('TTS error:', error.error)
         setIsSpeaking(false)
         // If error is 'not-allowed', it might be a timing issue or browser restriction
         if (error.error === 'not-allowed') {
@@ -78,3 +78,5 @@ export const useTTS = () => {
 
   return { speak, stop, isSpeaking }
 }
+
+

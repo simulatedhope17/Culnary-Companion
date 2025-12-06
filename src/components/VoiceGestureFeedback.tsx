@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useVoiceGesture } from '../context/VoiceGestureContext'
-import { Mic, Hand, CheckCircle, XCircle, Loader } from 'lucide-react'
+import { CheckCircle, XCircle } from 'lucide-react'
 
 const VoiceGestureFeedback = () => {
-  const { isListening, isGestureDetecting, lastCommand, lastGesture, isVoiceActive, isGestureActive } = useVoiceGesture()
+  const { lastCommand, lastGesture } = useVoiceGesture()
   const [showFeedback, setShowFeedback] = useState(false)
   const [feedbackType, setFeedbackType] = useState<'success' | 'error' | 'listening' | null>(null)
   const [feedbackMessage, setFeedbackMessage] = useState('')

@@ -14,7 +14,7 @@ const HandPoseGestureDetector = ({ enabled = true }: HandPoseGestureDetectorProp
   const cooldownRef = useRef(false)
   const gestureHoldCountRef = useRef(0)
 
-  const { isDetecting, hands, error, startDetection, stopDetection, detectGesture } = useHandPose({
+  const { error, startDetection, stopDetection, detectGesture } = useHandPose({
     enabled: enabled && isGestureActive,
     onResults: (results) => {
       if (results.length > 0) {

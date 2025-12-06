@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { X, Play, Pause, RotateCcw, Plus } from 'lucide-react'
-import { useTimers } from '../context/TimerContext'
 
 interface TimerModalProps {
   isOpen: boolean
@@ -11,7 +10,6 @@ interface TimerModalProps {
 }
 
 const TimerModal = ({ isOpen, onClose, initialMinutes = 0, onTimerComplete, onAddToMultiTimer }: TimerModalProps) => {
-  const { addTimer } = useTimers()
   const [minutes, setMinutes] = useState(initialMinutes)
   const [seconds, setSeconds] = useState(0)
   const [isRunning, setIsRunning] = useState(false)
